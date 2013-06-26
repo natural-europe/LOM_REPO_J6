@@ -101,7 +101,7 @@ public class ReIndexFSImpl extends ReIndexImpl {
 		String[] repoSelected = { repositories };
 		File dir = new File(outputDir);
 
-		Vector<File> files = new Vector<>();
+		Vector<File> files = new Vector();
 
 		if (!repositories.equals("*")) {
 			repoSelected = repositories.split(",");
