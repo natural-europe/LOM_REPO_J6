@@ -137,6 +137,15 @@ public class LOMLiteHandler extends DocumentHandler {
 		// Title
 		else if (tmpBranche.matches(".*title.*")) {
 			if (tmpBranche.endsWith("title.string")) {
+				//String title = elementBuffer.toString().trim();
+				//String firstChar=title.substring(0,1).toUpperCase();
+				
+				doc.add(new Field(tmpBranche.toLowerCase(), elementBuffer.toString().trim(), Field.Store.YES,Field.Index.ANALYZED));// XXX
+			}
+			contents = contents.concat(" " + elementBuffer.toString().toLowerCase());
+		}
+		else if (tmpBranche.matches(".*description.*")) {
+			if (tmpBranche.endsWith("description.string")) {
 				doc.add(new Field(tmpBranche.toLowerCase(), elementBuffer.toString().trim(), Field.Store.YES,Field.Index.ANALYZED));// XXX
 			}
 			contents = contents.concat(" " + elementBuffer.toString().toLowerCase());

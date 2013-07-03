@@ -54,7 +54,7 @@ public class InsertDelegateSingleStringImpl implements IndexInserterDelegate {
 			doc.add(new Field("key", key, Field.Store.YES,
 					Field.Index.NOT_ANALYZED));
 			for (String collection : this.collection) {
-				doc.add(new Field("collection", collection, Field.Store.YES,
+				doc.add(new Field("collection", collection.toUpperCase(), Field.Store.YES,
 						Field.Index.NOT_ANALYZED));
 			}
 			doc.add(new Field("date.insert", DateTools.dateToString(new Date(),

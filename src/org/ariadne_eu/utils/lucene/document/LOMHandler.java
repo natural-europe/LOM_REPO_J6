@@ -241,11 +241,11 @@ public class LOMHandler extends DocumentHandler {
 		else if (tmpBranche.matches(".*title.*")) {
 			if (tmpBranche.endsWith("title.string")) {
 				doc.add(new Field(tmpBranche.toLowerCase(), elementBuffer
-						.toString().trim().toLowerCase(), Field.Store.YES,
-						Field.Index.ANALYZED));// XXX
+						.toString().trim(), Field.Store.YES,
+						Field.Index.ANALYZED));// XXX .toLowerCase()
 				doc.add(new Field(tmpBranche.toLowerCase() + ".exact",
-						elementBuffer.toString().trim().toLowerCase(), Field.Store.YES,
-						Field.Index.NOT_ANALYZED));// XXX
+						elementBuffer.toString().trim(), Field.Store.YES,
+						Field.Index.NOT_ANALYZED));// XXX.toLowerCase()
 
 			}
 		}
@@ -369,7 +369,7 @@ public class LOMHandler extends DocumentHandler {
 		}
 		// general.description.string
 		else if (tmpBranche.matches(".*general.description.string")) {
-			String format = elementBuffer.toString().toLowerCase().trim();
+			String format = elementBuffer.toString().trim();//.toLowerCase()
 			doc.add(new Field(tmpBranche.toLowerCase(), format, Field.Store.YES, Field.Index.ANALYZED));// XXX
 		}
 		// general.keyword.string
