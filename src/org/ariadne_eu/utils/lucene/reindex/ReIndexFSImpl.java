@@ -116,7 +116,7 @@ public class ReIndexFSImpl extends ReIndexImpl {
 					if (!files.contains(repo))
 						files.add(repo);
 					else
-						log.error("Resitory:" + repo.getName()
+						log.error("Repository:" + repo.getName()
 								+ " is allready in the list to be reindexed.");
 				} else
 					log.error("Repository:" + repo.getName()
