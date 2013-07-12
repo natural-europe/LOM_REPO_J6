@@ -76,7 +76,7 @@ public class InsertDelegateSingleStringImpl implements IndexInserterDelegate {
 			}
 			if (!luceneHandler
 					.equalsIgnoreCase("org.ariadne_eu.utils.lucene.document.LOMLiteHandler")
-					|| !luceneHandler
+					&& !luceneHandler
 							.equalsIgnoreCase("org.ariadne_eu.utils.lucene.document.LOMLiteLangHandler")) {
 				doc.add(new Field("md", insertMetadata, Field.Store.YES,
 						Field.Index.NOT_ANALYZED,
