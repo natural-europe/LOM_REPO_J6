@@ -88,36 +88,29 @@ public class ResultDelegateARIADNERFJS implements IndexSearchDelegate {
 			JSONObject json = new JSONObject();
 			doc = response.getResults().get(i);
 			try {
-				idArrayJson.put(doc.get("lom.general.identifier.entry"));
+idArrayJson.put(doc.get("lom.general.identifier.entry"));
 
-				addJsonObjectWE(doc, json, "lom.general.title.langstring",
-						"title");
+				
 				addJsonObjectWE(doc, json, "lom.general.title.string", "title");
 
 				addJsonObjectWE(doc, json, "lom.general.identifier.entry",
 						"identifier");
 
-				addJsonObjectWE(doc, json,
-						"lom.general.description.langstring", "descriptions");
 				addJsonObjectWE(doc, json, "lom.general.description.string",
 						"descriptions");
 
 				addJsonObjectWE(doc, json, "lom.general.language", "language");
 
-				addJsonObjectWE(doc, json, "lom.general.keyword.langstring",
-						"keywords");
 				addJsonObjectWE(doc, json, "lom.general.keyword.string",
 						"keywords");
 
 				addJsonObjectWE(doc, json, "lom.technical.location", "location");
 
-				addJsonObjectWE(doc, json, "lom.general.identifier.entry",
-						"identifier");
 
 				addJsonObjectWE(doc, json, "lom.educational.context.value",
 						"context");
 
-				addJsonObjectWE(doc, json, "lom.technical.size", "size");
+				//addJsonObjectWE(doc, json, "lom.technical.size", "size");
 
 				addJsonObjectWE(doc, json, "lom.metametadata.identifier.entry",
 						"metaMetadataId");
@@ -132,41 +125,39 @@ public class ResultDelegateARIADNERFJS implements IndexSearchDelegate {
 						"lom.rights.copyrightandotherestrictions.value",
 						"license");
 				//
-				addJsonObjectWE(doc, json,
-						"lom.educational.learningresourcetype.value", "type");
-				addJsonObject(doc, json, "lom.lifecycle.contribute.role.value",
-						"contributor role");
+//				addJsonObjectWE(doc, json,
+//						"lom.educational.learningresourcetype.value", "type");
+//				addJsonObject(doc, json, "lom.lifecycle.contribute.role.value",
+//						"contributor role");
 
-				addJsonObjectWE(doc, json, "lom.general.identifier.catalog",
-						"catalog");
+//				addJsonObjectWE(doc, json, "lom.general.identifier.catalog",
+//						"catalog");
 
-				addJsonObjectWE(doc, json,
-						"lom.lifecycle.contribute.date.datetime",
-						"contribution date");
+//				addJsonObjectWE(doc, json,
+//						"lom.lifecycle.contribute.date.datetime",
+//						"contribution date");
 
-				addJsonObjectWE(doc, json, "lom.lifecycle.contribute.entity",
-						"contributor");
+//				addJsonObjectWE(doc, json, "lom.lifecycle.contribute.entity",
+//						"contributor");
 
-				addJsonObjectWE(doc, json,
-						"lom.classification.taxonpath.taxon.id",
-						"classification");
+//				addJsonObjectWE(doc, json,
+//						"lom.classification.taxonpath.taxon.id",
+//						"classification");
 
-				addJsonObjectWE(doc, json,
-						"lom.rights.copyrightandotherrestrictions.source",
-						"license source");
+//				addJsonObjectWE(doc, json,
+//						"lom.rights.copyrightandotherrestrictions.source",
+//						"license source");
+//
+//				addJsonObjectWE(doc, json, "lom.annotation.date.datetime",
+//						"annotation date");
+//
+//				addJsonObjectWE(doc, json, "lom.rights.description.string",
+//						"rights");
 
-				addJsonObjectWE(doc, json, "lom.annotation.date.datetime",
-						"annotation date");
-
-				addJsonObjectWE(doc, json, "lom.rights.description.langstring",
-						"rights");
-				addJsonObjectWE(doc, json, "lom.rights.description.string",
-						"rights");
-
-				addJsonObjectWE(doc, json, "lom.classification.purpose.value",
-						"classification purpose");
-				addJsonObjectWE(doc, json,
-						"lom.relation.resource.identifier.entry", "relation");
+//				addJsonObjectWE(doc, json, "lom.classification.purpose.value",
+//						"classification purpose");
+//				addJsonObjectWE(doc, json,
+//						"lom.relation.resource.identifier.entry", "relation");
 
 				addJsonObject(doc, json, "mdPath", "mdPath");
 
