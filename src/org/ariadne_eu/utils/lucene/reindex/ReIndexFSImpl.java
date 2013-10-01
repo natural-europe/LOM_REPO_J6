@@ -118,9 +118,17 @@ public class ReIndexFSImpl extends ReIndexImpl {
 					else
 						log.error("Repository:" + repo.getName()
 								+ " is allready in the list to be reindexed.");
-				} else
-					log.error("Repository:" + repo.getName()
-							+ " does not exist.");
+				} else {
+					log.error("Repository:"
+							+ repo.getName()
+							+ " does not exist.It will be deleted from the index");
+					if (!files.contains(repo))
+						if (!files.contains(repo))
+							files.add(repo);
+						else
+							log.error("Resitory:" + repo.getName()
+									+ " is allready in the list to be deleted.");
+				}
 
 			}
 		} else {
@@ -143,12 +151,11 @@ public class ReIndexFSImpl extends ReIndexImpl {
 		if (luceneImpl == null)
 			return;
 
-		if (!repositories.equals("*")) {
+		if (repositories.equals("*")) {
 			luceneImpl.createLuceneIndex();
 		} else {
 			luceneImpl.openLuceneIndex(repoSelected);
 		}
-		
 
 		String implementation = PropertiesManager.getInstance().getProperty(
 				RepositoryConstants.getInstance().MD_INSERT_IMPLEMENTATION);
@@ -156,11 +163,14 @@ public class ReIndexFSImpl extends ReIndexImpl {
 
 			for (int i = 0; i < files.size(); i++) {
 				mdFile = files.elementAt(i);
-				if (mdFile.isDirectory()) {
-					indexFile(mdFile, luceneImpl,
-							new String[] { mdFile.getName() });
-				} else {
-					indexFile(mdFile, luceneImpl, new String[] { "ARIADNE" });
+				if (mdFile.exists()) {
+					if (mdFile.isDirectory()) {
+						indexFile(mdFile, luceneImpl,
+								new String[] { mdFile.getName() });
+					} else {
+						indexFile(mdFile, luceneImpl,
+								new String[] { "ARIADNE" });
+					}
 				}
 			}
 		}
@@ -203,9 +213,10 @@ public class ReIndexFSImpl extends ReIndexImpl {
 							new OutputFormat(doc));
 					serializer.serialize((Element) doc.getFirstChild());
 					String lom = out.toString();
-					 fPath = mdFile.getAbsolutePath();
+					fPath = mdFile.getAbsolutePath();
 					if (identifier != null)
-						luceneImpl.insertMetadata(identifier, lom, cName,fPath);
+						luceneImpl
+								.insertMetadata(identifier, lom, cName, fPath);
 				} catch (Exception e) {
 					log.error("indexFile: fileName=" + mdFile.getName(), e);
 				}
