@@ -143,8 +143,12 @@ public class ReIndexFSImpl extends ReIndexImpl {
 		if (luceneImpl == null)
 			return;
 
-		// luceneImpl.createLuceneIndex();
-		luceneImpl.openLuceneIndex();
+		if (!repositories.equals("*")) {
+			luceneImpl.createLuceneIndex();
+		} else {
+			luceneImpl.openLuceneIndex(repoSelected);
+		}
+		
 
 		String implementation = PropertiesManager.getInstance().getProperty(
 				RepositoryConstants.getInstance().MD_INSERT_IMPLEMENTATION);
